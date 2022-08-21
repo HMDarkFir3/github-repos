@@ -6,12 +6,21 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 import React, { FC } from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 import { CustomThemeProvider } from "./src/contexts/ThemeContext";
 
 import { Routes } from "@routes/index";
 
-import { dark } from "@themes/dark";
+const GITHUB_TOKEN = "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";
+
+const appoloClient = new ApolloClient({
+  uri: "https://api.github.com/graphql",
+  cache: new InMemoryCache(),
+  headers: {
+    Authorization: `Bearer ${GITHUB_TOKEN}`,
+  },
+});
 
 export const App: FC = () => {
   SplashScreen.preventAutoHideAsync();
@@ -27,8 +36,10 @@ export const App: FC = () => {
   SplashScreen.hideAsync();
 
   return (
-    <CustomThemeProvider>
-      <Routes />
-    </CustomThemeProvider>
+    <ApolloProvider client={appoloClient}>
+      <CustomThemeProvider>
+        <Routes />
+      </CustomThemeProvider>
+    </ApolloProvider>
   );
 };
