@@ -1,12 +1,15 @@
+import { StatusBar } from "expo-status-bar";
 import React, { FC } from "react";
-import { SafeAreaView, Text } from "react-native";
 
-import { Container } from "./styles";
+import { Header } from "@components/Header";
+
+import { Container, Title } from "./styles";
 
 export const Home: FC = () => {
   return (
     <Container>
-      <Text>Home</Text>
+      <StatusBar style="light" />
+      <Header />
     </Container>
   );
 };
