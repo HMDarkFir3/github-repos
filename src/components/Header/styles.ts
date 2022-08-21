@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
-import { Platform } from "react-native";
+import { Platform, TouchableOpacity } from "react-native";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 import { fonts } from "@themes/fonts";
 
@@ -42,3 +43,5 @@ export const Username = styled.Text`
   font-size: 20px;
   color: ${({ theme }) => theme.colors.title};
 `;
+
+export const Button = styled(TouchableOpacity)``;

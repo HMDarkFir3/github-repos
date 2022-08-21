@@ -6,7 +6,8 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 import React, { FC } from "react";
-import { ThemeProvider } from "styled-components/native";
+
+import { CustomThemeProvider } from "./src/contexts/ThemeContext";
 
 import { Routes } from "@routes/index";
 
@@ -26,8 +27,8 @@ export const App: FC = () => {
   SplashScreen.hideAsync();
 
   return (
-    <ThemeProvider theme={dark}>
+    <CustomThemeProvider>
       <Routes />
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
 };

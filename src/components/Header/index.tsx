@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { useTheme } from "styled-components/native";
-import { Sun } from "phosphor-react-native";
+import { Sun, Moon } from "phosphor-react-native";
+
+import { useCustomTheme } from "../../hooks/useCustomTheme";
 
 import {
   Container,
@@ -9,10 +10,11 @@ import {
   WelcomeWrapper,
   Welcome,
   Username,
+  Button,
 } from "./styles";
 
 export const Header: FC = () => {
-  const { colors } = useTheme();
+  const { theme, toggleTheme } = useCustomTheme();
 
   return (
     <Container>
@@ -28,8 +30,13 @@ export const Header: FC = () => {
           <Username>HMDarkFir3</Username>
         </WelcomeWrapper>
       </ImageWrapper>
-
-      <Sun color={colors.title} size={48} />
+      <Button activeOpacity={0.7} onPress={toggleTheme}>
+        {theme.name === "dark" ? (
+          <Sun color={theme.colors.title} size={48} weight="thin" />
+        ) : (
+          <Moon color={theme.colors.title} size={48} weight="thin" />
+        )}
+      </Button>
     </Container>
   );
 };

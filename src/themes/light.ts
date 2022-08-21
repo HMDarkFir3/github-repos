@@ -3,7 +3,7 @@ export const light = {
 
   colors: {
     background: "#f1f1f1",
-    header: "#eeeeee",
+    header: "#dddddd",
     title: "#000000",
     border: "#000000",
   },
