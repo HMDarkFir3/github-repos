@@ -1,23 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React, { FC } from "react";
-import { StyleSheet, Text, View } from "react-native";
 
-import { Home } from "@screens/Home";
+import { Routes } from "@routes/index";
 
 export const App: FC = () => {
   return (
-    <View style={styles.container}>
-      <Home />
+    <>
+      <Routes />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
